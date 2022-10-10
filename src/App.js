@@ -10,13 +10,25 @@ import Main from './layout/Main';
 function App() {
   const router = createBrowserRouter([
     {
-      path: '/', element: <Main></Main>, errorElement: <ErrorPage></ErrorPage>,
+      path: '/',
+      element: <Main></Main>,
+      errorElement: <ErrorPage></ErrorPage>,
+
       children: [
         {
-          path: 'home', element: <Home></Home>
+          path: '/',
+          element: <Home></Home>
         },
         {
-          path: 'topics', element: <Topics></Topics>
+          path: 'home',
+          element: <Home></Home>,
+        },
+        {
+          path: 'topics',
+          loader: async () => {
+            return fetch(`https://openapi.programming-hero.com/api/quiz`)
+          },
+          element: <Topics></Topics>
         },
         {
           path: 'statistics', element: <Statistics></Statistics>
