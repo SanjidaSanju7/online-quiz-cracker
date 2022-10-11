@@ -7,8 +7,6 @@ const QuizDetails = () => {
     const { data } = useLoaderData();
 
 
-
-
     return (
         <div>
             {

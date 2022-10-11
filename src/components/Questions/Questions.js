@@ -1,3 +1,7 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEyeLowVision } from '@fortawesome/free-solid-svg-icons';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 import React from 'react';
 
 const Questions = ({ quiz }) => {
@@ -5,6 +9,12 @@ const Questions = ({ quiz }) => {
 
     const { question, options, correctAnswer } = quiz;
 
+    const eyeIcon = () => {
+        toast.success(correctAnswer, {
+            position: 'top-center',
+        });
+
+    }
 
     return (
         <div className="QuizContainer mt-5 container">
@@ -13,9 +23,13 @@ const Questions = ({ quiz }) => {
                     Read the question and choose the most correct option:
                 </p>
             </div>
-
             <div className="PracticeQuestionContainer bg-emerald-300 border-emerald-400 mt-4 p-8 max-w-lg m-auto shadow-lg rounded">
-                <h2 className=' font-semibold'>Question: {question}</h2>
+
+                <div className='flex justify-evenly'>
+                    <h2 className=' font-semibold'>Question: {question}</h2>
+                    <FontAwesomeIcon className='px-4' onClick={eyeIcon} icon={faEyeLowVision} />
+                    <ToastContainer />
+                </div>
 
 
                 <ul className='option-container text-slate-500 py-7  '>

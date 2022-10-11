@@ -1,33 +1,34 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { faLaptopCode } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import './Header.css'
 
 const Header = () => {
     return (
 
         <header className="p-4 dark:bg-gray-800 dark:text-gray-100">
             <div className="container flex justify-between h-16 mx-auto">
-                <Link rel="noopener noreferrer" aria-label="Back to homepage" className="flex items-center p-2">
+                <Link rel="noopener noreferrer" aria-label="Back to homepage" className="flex items-center p-2" >
                     <FontAwesomeIcon icon={faLaptopCode} className='w-10 h-10 text-emerald-600 mt-1 '></FontAwesomeIcon>
                     <h1 className='text-4xl bold text-emerald-600 ml-3 font-semibold' >Online Quiz</h1>
                 </Link>
 
                 <ul className="items-stretch hidden space-x-3 md:flex">
                     <li className="flex">
-                        <Link to='/home' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent text-emerald-600 font-semibold">Home</Link>
+                        <NavLink to='/home' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent text-emerald-600 font-semibold" >Home</NavLink>
                     </li>
                     <li className="flex">
-                        <Link to='/topics' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent
-                        text-emerald-600 font-semibold">Topics</Link>
+                        <NavLink to='/topics' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent
+                        text-emerald-600 font-semibold">Topics</NavLink>
                     </li>
                     <li className="flex">
-                        <Link to='/statistics' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 dark:border-violet-400
-                        text-emerald-600 font-semibold">Statistics</Link>
+                        <NavLink to='/statistics' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 dark:border-violet-400
+                        text-emerald-600 font-semibold">Statistics</NavLink>
                     </li>
                     <li className="flex">
-                        <Link to='/blog' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent
-                        text-emerald-600 font-semibold">Blog</Link>
+                        <NavLink to='/blog' rel="noopener noreferrer" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent
+                        text-emerald-600 font-semibold">Blog</NavLink>
                     </li>
                 </ul>
                 <button className="flex justify-end p-4 md:hidden">
@@ -37,7 +38,7 @@ const Header = () => {
                 </button>
             </div>
 
-        </header>
+        </header >
 
     );
 };
