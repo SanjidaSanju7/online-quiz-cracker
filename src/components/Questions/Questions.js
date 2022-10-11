@@ -16,6 +16,21 @@ const Questions = ({ quiz }) => {
 
     }
 
+    const handleCorrectAnswer = (e) => {
+        if (e.target.value === correctAnswer) {
+            toast.success('Correct Answer', {
+                position: 'top-center'
+            })
+
+
+        }
+        else {
+            toast.error('Your answer is wrong', {
+                position: 'top-center'
+            })
+        }
+    }
+
     return (
         <div className="QuizContainer mt-5 container">
             <div className="quizHeader">
@@ -34,19 +49,19 @@ const Questions = ({ quiz }) => {
 
                 <ul className='option-container text-slate-500 py-7  '>
                     <li>
-                        <input type="radio" name="answer" id="ans1" className="answer" />
+                        <input onChange={handleCorrectAnswer} type="radio" name="answer" id="ans1" className="answer" value={options[0]} />
                         <label for="ans1" id="option1">{options[0]}</label>
                     </li>
                     <li>
-                        <input type="radio" name="answer" id="ans1" className='answer' />
+                        <input onChange={handleCorrectAnswer} type="radio" name="answer" id="ans1" className='answer' value={options[1]} />
                         <label for="ans1" id="option1">{options[1]}</label>
                     </li>
                     <li>
-                        <input type="radio" name="answer" id="ans1" className='answer' />
+                        <input onChange={handleCorrectAnswer} type="radio" name="answer" id="ans1" className='answer' value={options[2]} />
                         <label for="ans1" id="option1">{options[2]}</label>
                     </li>
                     <li>
-                        <input type="radio" name="answer" id="ans1" className='answer' />
+                        <input onChange={handleCorrectAnswer} type="radio" name="answer" id="ans1" className='answer' value={options[3]} />
                         <label for="ans1" id="option1">{options[3] ? options[3] : ''}</label>
                     </li>
                 </ul>
